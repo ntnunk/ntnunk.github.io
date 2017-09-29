@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Chaotic Focus</title><link href="http://www.chaoticfocus.net/" rel="alternate"></link><link href="http://www.chaoticfocus.net/feeds/all.atom.xml" rel="self"></link><id>http://www.chaoticfocus.net/</id><updated>2017-09-28T23:40:00-04:00</updated><entry><title>Welcome To My Blog</title><link href="http://www.chaoticfocus.net/welcome-to-my-blog.html" rel="alternate"></link><published>2017-09-28T23:40:00-04:00</published><updated>2017-09-28T23:40:00-04:00</updated><author><name>Noel Nunkovich</name></author><id>tag:www.chaoticfocus.net,2017-09-28:/welcome-to-my-blog.html</id><summary type="html">&lt;p&gt;Welcome to my new blog, Chaotic Focus&lt;/p&gt;</summary><content type="html">&lt;p&gt;Welcome to my new home on the web, Chaotic Focus. &lt;/p&gt;
+&lt;p&gt;First, a bit about the name. I chose the name Chaotic Focus because it seems to summarize my life. I
+have way more hobbies and interests than any one person should, and I tend to get obsessively
+focused on whatever the hobby &lt;em&gt;du jour&lt;/em&gt; is at the moment. As a result, my life looks chaotic from
+the outside (and sometimes from the inside...) as I bound from electronics to cycling to gadgets to
+some woodworking project or another to the latest interesting software package or programming
+language to... well, you get the idea. But whatever it is I'm working on I'm usually pretty focused
+on it.&lt;/p&gt;
+&lt;p&gt;More about me, by way of an introduction. I've spent many years working in the Controls and
+Automation field for a major multi-national corporation. During that time I've done everything from
+writing internal tools to production PLC (Programmable Logic Controller) programming, Operator
+Interface Terminals, industrial Human/Machine Interface software, database and reporting software,
+and on and on and on. I've also spent time as a bench-level electronics tech, and one of my primary
+areas of interest are where those two things come together: hardware programming with things like
+Arduino, esp8266, etc. These days I'm actually working in the Industrial IoT group for the company
+I'm employed by. You might say it's something of a dream job for me. Really, it always has been, but
+now even more so.&lt;/p&gt;
+&lt;p&gt;On the more leisure side of things, I got addicted to cycling a few years ago after taking it up in
+an effort to lose some weight and get into somewhat better shape. As usual for me, I quickly got
+hyper-focused on it and I've since graduated from barely making it around the block to racing
+multi-hour mountain bike races, 10 mile and 40km road time trials, road races, criteriums, and
+probably my biggest love, cyclocross. This blog will have no shortage of race and ride reports and
+posts about bikes, gear, and cycling/fitness tech.&lt;/p&gt;
+&lt;p&gt;I'm also a life-long guitar player, though I don't play as regularly as I should anymore. I picked
+up some piano along the way, and digital recording, particularly using open source software,
+interests me. I'm sure posts will appear about those subjects as well.&lt;/p&gt;
+&lt;p&gt;With that, thanks for visiting!&lt;/p&gt;</content><category term="blog"></category><category term="admin"></category></entry></feed>
