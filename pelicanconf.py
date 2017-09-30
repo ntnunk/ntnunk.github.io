@@ -49,6 +49,19 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+# Menu control
+DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_PAGES_ON_MENU = True
+
+MENUITEMS = (
+    ('Home', '/'),
+    ('Blog', '/category/blog/'),
+    ('Tech', '/category/tech/'),
+    ('Cycling', '/category/cycling/'),
+    ('Music', '/music/'),
+    ('Archives', '/archives/'),
+    ('Tags', '/tags/')
+)
 # Article settings
 SHOW_ARTICLE_AUTHOR = True
 SHOW_ARTICLE_CATEGORY = True
@@ -61,12 +74,9 @@ DISPLAY_CATEGORIES_ON_SIDEBAR = True
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 DISPLAY_ARCHIVE_ON_SIDEBAR = True
 
-ABOUT_ME = """
-I'm an obsessive cyclist and bike racer who loves to tinker when I'm not riding. I work in
-technology and I'm ravenously curious about software, electronics, IoT, tech-focused "Maker"
-projects, and gadgets of all kinds. When not engaged in any of those pursuits I'm usually reading,
-playing guitar or piano, or watching <a href="http://www.hurricanes.com">Carolina Hurricanes</a>
-hockey. Oh, and sometimes I sleep.
+ABOUT_ME = """ Cyclist and technologist who spends too much time on too many hobbies. <a
+href="http://www.chaoticfocus.com/pages/about.html" style="text-decoration:underline">Read
+more about me here</a> if you're interested in the details.
 """
 AVATAR = 'images/avatar.jpg'
 

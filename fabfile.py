@@ -99,13 +99,13 @@ def gh_pages():
 # ------------
 # Helper script to make a post entry template
 template = """
-Title: {title}
-Date: {year}-{month}-{day} {hour}:{minute:02d}
-Tags:
-Category:
-Slug: {slug}
-Summary:
-Status: draft
+title: {title}
+date: {year}-{month}-{day} {hour}:{minute:02d}
+tags:
+category:
+slug: {slug}
+summary:
+status: draft
 """
 def new_entry(title, category='blog'):
     today = datetime.today()
