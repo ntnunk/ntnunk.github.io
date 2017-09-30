@@ -91,7 +91,6 @@ def publish():
 def gh_pages():
     """Publish to GitHub Pages"""
     rebuild()
-    enter_dns_file()
     github()
 
     #local("ghp-import -b {github_pages_branch} {deploy_path} -p".format(**env))
@@ -108,20 +107,20 @@ Slug: {slug}
 Summary:
 Status: draft
 """
-def make_entry(title):
+def new_entry(title, category='blog'):
     today = datetime.today()
-    slug = title.lower().strip().replace(' ', '-')
-    f_create = "content/{}_{:0>2}_{:0>2}_{}.md".format(today.year, today.month, today.day, slug)
+    slug = title.lower().strip().replace(' ', '-').replace(':', '')
+    filename = "{}_{:0>2}_{:0>2}_{}.md".format(today.year, today.month, today.day, slug)
+    cats = ('blog', 'tech', 'cycling', 'music')
+    if not category.lower() in cats:
+        category = 'blog'
+    f_create = 'content/%s/%s' % (cat, filename)
     t = template.strip().format(title=title, hashes='-' * len(title), year=today.year,
                                 month=today.month, day=today.day, hour=today.hour,
                                 minute=today.minute, slug=slug)
     with open(f_create, 'w') as w:
         w.write(t)
     print 'File created -> ' + f_create
-
-def enter_dns_file():
-    with open('output/CNAME', 'w') as f:
-        f.write('www.chaoticfocus.net')
 
 def github(publish_drafts=False):
     try:
@@ -136,10 +135,7 @@ def github(publish_drafts=False):
           ' -b master'
           ' -c www.chaoticfocus.net'
           ' output')
-    local('git push '
-          'git@github.com:ntnunk/ntnunk.github.io.git '
-          'gh-pages:master'
-          ' -f')
+    local('git push --all')
     local('rm -rf output')
 
 

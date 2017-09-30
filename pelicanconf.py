@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'Noel Nunkovich'
+AUTHOR = u'Noel'
 SITENAME = u'Chaotic Focus'
-SITEURL = 'http://www.chaoticfocus.net'
+SITEURL = ''
 
 # For the pelican-boostrap3 theme
 # github.com/getpelican/pelican-themes/
@@ -18,6 +18,24 @@ BOOTSTRAP_THEME = 'cyborg'
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 PATH = 'content'
+ARTICLE_PATHS = ['blog', 'tech', 'cycling', 'music']
+ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{slug}/'
+ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{slug}/index.html'
+
+CATEGORY_URL = 'category/{slug}'
+CATEGORY_SAVE_AS = 'category/{slug}/index.html'
+
+TAG_URL = 'tag/{slug}/'
+TAG_SAVE_AS = 'tag/{slug}/index.html'
+
+# Generate Yearly archive
+YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
+
+# Show most recent posts first
+NEWEST_FIRST_ARCHIVES = False
+
+#ARTICLE_SAVE_AS = '{date:%Y}/{slug}.html'
+#ARTICLE_URL = '{date:%Y}/{slug}.html'
 
 TIMEZONE = 'US/Eastern'
 
@@ -75,4 +93,5 @@ PYGMENTS_RST_OPTIONS = { 'linenos': 'table' }
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+DISQUS_SITENAME = 'chaotic-focus'
 
