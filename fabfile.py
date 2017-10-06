@@ -76,24 +76,9 @@ def cf_upload():
               '-K {cloudfiles_api_key} '
               'upload -c {cloudfiles_container} .'.format(**env))
 
-@hosts(production)
 def publish():
-    """Publish to production via rsync"""
-    local('pelican -s publishconf.py')
-    project.rsync_project(
-        remote_dir=dest_path,
-        exclude=".DS_Store",
-        local_dir=DEPLOY_PATH.rstrip('/') + '/',
-        delete=True,
-        extra_opts='-c',
-    )
-
-def gh_pages():
-    """Publish to GitHub Pages"""
-    rebuild()
+    local('pelican -d -s publishconf.py')
     github()
-
-    #local("ghp-import -b {github_pages_branch} {deploy_path} -p".format(**env))
 
 # My additions
 # ------------
@@ -107,14 +92,14 @@ slug: {slug}
 summary:
 status: draft
 """
-def new_entry(title, category='blog'):
+def new_entry(title, category='general'):
     today = datetime.today()
     slug = title.lower().strip().replace(' ', '-').replace(':', '')
     filename = "{}_{:0>2}_{:0>2}_{}.md".format(today.year, today.month, today.day, slug)
-    cats = ('blog', 'tech', 'cycling', 'music')
+    cats = ('general', 'tech', 'cycling')
     if not category.lower() in cats:
-        category = 'blog'
-    f_create = 'content/%s/%s' % (cat, filename)
+        category = 'general'
+    f_create = 'content/%s/%s' % (category, filename)
     t = template.strip().format(title=title, hashes='-' * len(title), year=today.year,
                                 month=today.month, day=today.day, hour=today.hour,
                                 minute=today.minute, slug=slug)
