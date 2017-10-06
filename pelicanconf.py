@@ -18,12 +18,15 @@ BOOTSTRAP_THEME = 'cyborg'
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 PATH = 'content'
-ARTICLE_PATHS = ['blog', 'tech', 'cycling', 'music']
+ARTICLE_PATHS = ['general', 'tech', 'cycling' ]
 ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{slug}/index.html'
 
-CATEGORY_URL = 'category/{slug}'
+CATEGORY_URL = 'category/{slug}/'
 CATEGORY_SAVE_AS = 'category/{slug}/index.html'
+
+PAGE_URL = 'pages/{slug}/'
+PAGE_SAVE_AS = 'pages/{slug}/index.html'
 
 TAG_URL = 'tag/{slug}/'
 TAG_SAVE_AS = 'tag/{slug}/index.html'
@@ -55,12 +58,9 @@ DISPLAY_PAGES_ON_MENU = True
 
 MENUITEMS = (
     ('Home', '/'),
-    ('Blog', '/category/blog/'),
+    ('General', '/category/general/'),
     ('Tech', '/category/tech/'),
-    ('Cycling', '/category/cycling/'),
-    ('Music', '/music/'),
-    ('Archives', '/archives/'),
-    ('Tags', '/tags/')
+    ('Cycling', '/category/cycling/')
 )
 # Article settings
 SHOW_ARTICLE_AUTHOR = True
