@@ -3,7 +3,7 @@ Date: 2017-9-29 9:42
 Tags: esp8266, mongoose os, mcp23017, i2c
 Category: Tech
 Slug: esp8266-using-i2c-with-mongoose-os
-Summary: I2C with a MCP23017 GPIO Expansion IC and an ESP8266 with Mongoose
+Summary: I2C, MCP23017 GPIO Expansion Models, ESP8266, and Mongoose OS
 Status: published
 
 A project I'm working on recently required more GPIO pins than the ESP8266 I'm working with had

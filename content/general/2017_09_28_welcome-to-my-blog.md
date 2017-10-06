@@ -1,7 +1,7 @@
 Title: Welcome To My Blog
 Date: 2017-9-28 23:40
 Tags: blog, admin
-Category: Admin
+Category: General
 Slug: welcome-to-my-blog
 Summary: Welcome to my new blog, Chaotic Focus
 Status: published
