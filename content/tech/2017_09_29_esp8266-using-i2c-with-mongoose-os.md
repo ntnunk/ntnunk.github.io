@@ -1,9 +1,10 @@
 Title: ESP8266: Using I2C with Mongoose OS
 Date: 2017-9-29 9:42
+Modified: 2017-10-7 12:44
 Tags: esp8266, mongoose os, mcp23017, i2c
 Category: Tech
 Slug: esp8266-using-i2c-with-mongoose-os
-Summary: I2C, MCP23017 GPIO Expansion Models, ESP8266, and Mongoose OS
+Summary: I2C, MCP23017 GPIO Expansion Models, ESP8266, and Mongoose OS.
 Status: published
 
 A project I'm working on recently required more GPIO pins than the ESP8266 I'm working with had
@@ -14,13 +15,14 @@ so I needed to figure out how to get the I2C interface to work.
 
 I'm relatively new to both Mongoose and the ESP8266 but so far I really like them both. That said, I
 had trouble finding a good source of information for Mongoose and I2C. It took me piecing things
-together from various places and some good ol' experimentation to figure it out. It ended up being
-far easier than I thought once I got all the pieces lined up so I'm documenting it here so that it's
-a resource for myself and anyone else who has the same problems or questions I did.
+together from various places and some good ol' experimentation to figure it out. Getting everything
+working  ended up being far easier than I thought once I got all the pieces lined up. I'm
+documenting it here so that it's a resource for myself and anyone else who has the same problems or
+questions I did.
 
-First up, the app needs to have I2C enabled and the relevant library added. This is accomplished via
-mos.yml, the primary YAML configuration file in the app's root directory. To start with, enable I2C
-in the config section:
+First up, the Mongoose app needs to have I2C enabled and the relevant library added. This is
+accomplished via mos.yml, Mongoose's primary YAML configuration file in the app's root directory.
+Begin by enabling I2C in the config section:
 
 ```yaml
 # mos.yml
@@ -46,11 +48,11 @@ libs:
 
 Here's the part that stumped me for a while, especially when I saw bits of information scattered
 around the Interwebs about declaring which GPIO pins to use for SDA and SCL as part of config_schema
-section of mos.yml as described in code comments above. I had a hard time finding information on
-exactly what Mongoose does once I2C is enabled in the app config file. What pins were used for for
-the bus lines by default? I finally found the answer by building the app and then poking around in
-the app's 'build/fs' subdirectory. Specifically, the conf0.json file gets the following section added
-to it automagically when i2c.enable is set to True in mos.yml:
+section of mos.yml. I've described this in code comments above. I had a hard time finding
+information on exactly what Mongoose does once I2C is enabled in the app config file. What pins were
+used for for the bus lines by default? I finally found the answer by building the app and then
+poking around in the app's 'build/fs' subdirectory. Specifically, the conf0.json file gets the
+following section added to it automagically when i2c.enable is set to True in mos.yml:
 
 ```json
 {
