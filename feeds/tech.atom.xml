@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Chaotic Focus - Tech</title><link href="http://www.chaoticfocus.net/" rel="alternate"></link><link href="http://www.chaoticfocus.net/feeds/tech.atom.xml" rel="self"></link><id>http://www.chaoticfocus.net/</id><updated>2017-09-29T09:42:00-04:00</updated><entry><title>ESP8266: Using I2C with Mongoose OS</title><link href="http://www.chaoticfocus.net/posts/2017/09/esp8266-using-i2c-with-mongoose-os/" rel="alternate"></link><published>2017-09-29T09:42:00-04:00</published><updated>2017-09-29T09:42:00-04:00</updated><author><name>Noel</name></author><id>tag:www.chaoticfocus.net,2017-09-29:/posts/2017/09/esp8266-using-i2c-with-mongoose-os/</id><summary type="html">&lt;p&gt;I2C, MCP23017 GPIO Expansion Models, ESP8266, and Mongoose OS&lt;/p&gt;</summary><content type="html">&lt;p&gt;A project I'm working on recently required more GPIO pins than the ESP8266 I'm working with had
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Chaotic Focus - Tech</title><link href="http://www.chaoticfocus.net/" rel="alternate"></link><link href="http://www.chaoticfocus.net/feeds/tech.atom.xml" rel="self"></link><id>http://www.chaoticfocus.net/</id><updated>2017-10-07T12:44:00-04:00</updated><entry><title>ESP8266: Using I2C with Mongoose OS</title><link href="http://www.chaoticfocus.net/posts/2017/09/esp8266-using-i2c-with-mongoose-os/" rel="alternate"></link><published>2017-09-29T09:42:00-04:00</published><updated>2017-10-07T12:44:00-04:00</updated><author><name>Noel</name></author><id>tag:www.chaoticfocus.net,2017-09-29:/posts/2017/09/esp8266-using-i2c-with-mongoose-os/</id><summary type="html">&lt;p&gt;I2C, MCP23017 GPIO Expansion Models, ESP8266, and Mongoose OS.&lt;/p&gt;</summary><content type="html">&lt;p&gt;A project I'm working on recently required more GPIO pins than the ESP8266 I'm working with had
 available. That lead me to select a 
 &lt;a href="http://www.microchip.com/wwwproducts/en/MCP23017"&gt;Microchip MCP23017 I2C GPIO expander&lt;/a&gt; to expand
 the available GPIO. I'm using &lt;a href="http://www.mongoose-os.com"&gt;Mongoose OS&lt;/a&gt; for this particular project
 so I needed to figure out how to get the I2C interface to work.&lt;/p&gt;
 &lt;p&gt;I'm relatively new to both Mongoose and the ESP8266 but so far I really like them both. That said, I
 had trouble finding a good source of information for Mongoose and I2C. It took me piecing things
-together from various places and some good ol' experimentation to figure it out. It ended up being
-far easier than I thought once I got all the pieces lined up so I'm documenting it here so that it's
-a resource for myself and anyone else who has the same problems or questions I did.&lt;/p&gt;
-&lt;p&gt;First up, the app needs to have I2C enabled and the relevant library added. This is accomplished via
-mos.yml, the primary YAML configuration file in the app's root directory. To start with, enable I2C
-in the config section:&lt;/p&gt;
+together from various places and some good ol' experimentation to figure it out. Getting everything
+working  ended up being far easier than I thought once I got all the pieces lined up. I'm
+documenting it here so that it's a resource for myself and anyone else who has the same problems or
+questions I did.&lt;/p&gt;
+&lt;p&gt;First up, the Mongoose app needs to have I2C enabled and the relevant library added. This is
+accomplished via mos.yml, Mongoose's primary YAML configuration file in the app's root directory.
+Begin by enabling I2C in the config section:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# mos.yml&lt;/span&gt;
 
 &lt;span class="l l-Scalar l-Scalar-Plain"&gt;config_schema&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
@@ -35,11 +36,11 @@ in the config section:&lt;/p&gt;
 
 &lt;p&gt;Here's the part that stumped me for a while, especially when I saw bits of information scattered
 around the Interwebs about declaring which GPIO pins to use for SDA and SCL as part of config_schema
-section of mos.yml as described in code comments above. I had a hard time finding information on
-exactly what Mongoose does once I2C is enabled in the app config file. What pins were used for for
-the bus lines by default? I finally found the answer by building the app and then poking around in
-the app's 'build/fs' subdirectory. Specifically, the conf0.json file gets the following section added
-to it automagically when i2c.enable is set to True in mos.yml:&lt;/p&gt;
+section of mos.yml. I've described this in code comments above. I had a hard time finding
+information on exactly what Mongoose does once I2C is enabled in the app config file. What pins were
+used for for the bus lines by default? I finally found the answer by building the app and then
+poking around in the app's 'build/fs' subdirectory. Specifically, the conf0.json file gets the
+following section added to it automagically when i2c.enable is set to True in mos.yml:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="nt"&gt;&amp;quot;i2c&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
         &lt;span class="nt"&gt;&amp;quot;enable&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
