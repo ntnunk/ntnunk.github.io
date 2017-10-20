@@ -12,7 +12,7 @@ SITEURL = ''
 THEME = '/home/noel/Projects/other/pelican-themes/pelican-bootstrap3'
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 PLUGIN_PATHS = ['/home/noel/Projects/other/pelican-plugins']
-PLUGINS = ['i18n_subsites', 'tag_cloud']
+PLUGINS = ['i18n_subsites', 'tag_cloud', 'sitemap']
 I18N_TEMPLATES_LANG = 'en'
 BOOTSTRAP_THEME = 'cyborg'
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -43,6 +43,20 @@ NEWEST_FIRST_ARCHIVES = False
 TIMEZONE = 'US/Eastern'
 
 DEFAULT_LANG = u'en'
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'daily',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

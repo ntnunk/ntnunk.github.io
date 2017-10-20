@@ -87,7 +87,7 @@ template = """
 title: {title}
 date: {year}-{month}-{day} {hour}:{minute:02d}
 tags:
-category:
+category: {category}
 slug: {slug}
 summary:
 status: draft
@@ -102,7 +102,7 @@ def new_entry(title, category='general'):
     f_create = 'content/%s/%s' % (category, filename)
     t = template.strip().format(title=title, hashes='-' * len(title), year=today.year,
                                 month=today.month, day=today.day, hour=today.hour,
-                                minute=today.minute, slug=slug)
+                                minute=today.minute, category=category, slug=slug)
     with open(f_create, 'w') as w:
         w.write(t)
     print 'File created -> ' + f_create

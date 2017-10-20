@@ -1,4 +1,4 @@
-title: About
+title: About Me
 slug: about
 
 I'm a chaotically-focused (see what I did there?) self-professed geek and technologist. I work in
